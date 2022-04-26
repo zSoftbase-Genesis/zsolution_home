@@ -18,9 +18,14 @@ jobs:
           node-version: 14
 
       # Build the static site
-      - name: Create static build
-      - run: unset CI
-      - run: yarn install && yarn build
+      - name: Install packages
+        run: |
+          yarn install 
+
+      - name: create static build
+        run: |        
+          unset CI
+          yarn build  
       # Upload the artifact for other stages to use
       - name: Share artifact in github workflow
         uses: actions/upload-artifact@v3
