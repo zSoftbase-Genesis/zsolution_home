@@ -3,6 +3,9 @@ import ParticlesBg from "particles-bg";
 import Fade from "react-reveal";
 
 class Header extends Component {
+  changeRoute = () => {
+    window.location.href = '/contact'
+  }
   render() {
     if (!this.props.data) return null;
 
@@ -49,7 +52,7 @@ class Header extends Component {
             </li>
 
             <li>
-              <a className="smoothscroll" href="#contact">
+              <a className="smoothscroll" href="#" onClick={this.changeRoute}>
                 Contact
               </a>
             </li>

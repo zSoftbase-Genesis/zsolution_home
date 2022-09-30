@@ -8,12 +8,17 @@ import About from "./Components/About";
 import Resume from "./Components/Resume";
 import Contact from "./Components/Contact";
 import Portfolio from "./Components/Portfolio";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from 'react-router-dom'
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      foo: "bar",
       resumeData: {}
     };
 
@@ -36,21 +41,34 @@ class App extends Component {
     });
   }
 
+  home = () => (
+    <div className="App">
+      <Header data={this.state.resumeData.main} />
+      <About data={this.state.resumeData.main} />
+      <Resume data={this.state.resumeData.resume} />
+      <Portfolio data={this.state.resumeData.portfolio} />
+      <Footer data={this.state.resumeData.main} />
+    </div>
+  );
+
+  contactPage = () => (
+    <Contact data={this.state.resumeData.main} />
+  )
+
   componentDidMount() {
     this.getResumeData();
   }
 
   render() {
     return (
-      <div className="App">
-        <Header data={this.state.resumeData.main} />
-        <About data={this.state.resumeData.main} />
-        <Resume data={this.state.resumeData.resume} />
-        <Portfolio data={this.state.resumeData.portfolio} />
-        <Contact data={this.state.resumeData.main} />
-        <Footer data={this.state.resumeData.main} />
-      </div>
-    );
+      <Router>
+        <Switch>
+          <Route exact path='/' component={this.home} />
+          <Route exact path='/contact' component={this.contactPage} />
+          <Redirect to='/' />
+        </Switch>
+      </Router>
+    )
   }
 }
 
