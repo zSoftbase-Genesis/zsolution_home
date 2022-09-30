@@ -14,7 +14,7 @@ const Contact = () => {
 
   const handleSubmit = () => {
     setIsLoading(true)
-    axios.post('http://localhost:8080/send-mail', data).then(() => {
+    axios.post('https://asm-api-test.herokuapp.com/send-mail', data).then(() => {
       setIsLoading(false)
       setStatus('success')
     }).catch(() => {
