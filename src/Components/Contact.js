@@ -3,7 +3,8 @@ import { Fade, Slide } from "react-reveal";
 import axios from 'axios'
 
 const Contact = () => {
-  const [data, setData] = useState({
+  const [status, setStatus] = useState('')
+    const [data, setData] = useState({
     contactName: '',
     contactEmail: '',
     contactSubject: '',
@@ -15,10 +16,14 @@ const Contact = () => {
     setIsLoading(true)
     axios.post('http://localhost:8080/send-mail', data).then(() => {
       setIsLoading(false)
+      setStatus('success')
     }).catch(() => {
+      setStatus('false')
       setIsLoading(false)
     })
   }
+
+  console.log(status)
 
   return (
     <section id="contact">
@@ -102,17 +107,31 @@ const Contact = () => {
                           <img alt="" src="images/loader.gif" />
                         </span>
                       )
-                      : <button className="submit" onClick={handleSubmit}>Submit</button>
+                      : status === 'error'
+                      ? (
+                        <div id="message-warning"> Error boy</div>
+                      )
+                      : status === 'success' ?  (
+                        <div id="message-success">
+                          <i className="fa fa-check"></i>Your message was sent, thank you!
+                          <br />
+                        </div>
+                      ) : <button className="submit" onClick={handleSubmit}>Submit</button>
                   }
                 </div>
               </fieldset>
             </form>
-
-            <div id="message-warning"> Error boy</div>
-            <div id="message-success">
-              <i className="fa fa-check"></i>Your message was sent, thank you!
-              <br />
-            </div>
+            {status === 'error'
+              ? (
+                <div id="message-warning"> Error boy</div>
+              )
+              : status === 'success' ?  (
+                <div id="message-success">
+                  <i className="fa fa-check"></i>Your message was sent, thank you!
+                  <br />
+                </div>
+              ) : ''
+            }
           </div>
         </Slide>
 
