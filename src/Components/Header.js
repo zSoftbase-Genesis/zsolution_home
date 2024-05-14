@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import ParticlesBg from "particles-bg";
 import Fade from "react-reveal";
 
 class Header extends Component {
@@ -9,8 +8,8 @@ class Header extends Component {
   render() {
     if (!this.props.data) return null;
 
-    const project = this.props.data.project;
-    const github = this.props.data.github;
+    // const project = this.props.data.project;
+    // const github = this.props.data.github;
     const name = this.props.data.name;
     const description = this.props.data.description;
 
@@ -52,7 +51,7 @@ class Header extends Component {
             </li>
 
             <li>
-              <a className="smoothscroll" href="#" onClick={this.changeRoute}>
+              <a className="smoothscroll" href="/contact" onClick={this.changeRoute}>
                 Contact
               </a>
             </li>
