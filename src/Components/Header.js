@@ -51,7 +51,13 @@ class Header extends Component {
             </li>
 
             <li>
-              <a className="smoothscroll" href="/contact" onClick={this.changeRoute}>
+              <a className="smoothscroll" href="#clients">
+                Clients
+              </a>
+            </li>
+
+            <li>
+              <a className="smoothscroll" href="/contact">
                 Contact
               </a>
             </li>

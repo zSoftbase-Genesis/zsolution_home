@@ -14,6 +14,7 @@ import {
   Switch,
   Redirect
 } from 'react-router-dom'
+import Clients from "./Components/Clients";
 
 class App extends Component {
   constructor(props) {
@@ -47,6 +48,7 @@ class App extends Component {
       <About data={this.state.resumeData.main} />
       <Resume data={this.state.resumeData.resume} />
       <Portfolio data={this.state.resumeData.portfolio} />
+      <Clients />
       <Footer data={this.state.resumeData.main} />
     </div>
   );

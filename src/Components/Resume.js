@@ -35,7 +35,7 @@ class Resume extends Component {
                 <span>Our Services</span>
               </h1>
             <div
-              id="portfolio-wrapper"
+              id="portfolio-wrapper d-flex"
               className="bgrid-quarters s-bgrid-thirds cf d-grid"
             >
               <div className="d-grid">{skills}</div>

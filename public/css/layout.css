@@ -236,6 +236,21 @@ ul#nav li.current a { color: #fe6928; }
    padding-top: 90px;
    padding-bottom: 72px;
    overflow: hidden;
+   margin: 0 auto;
+}
+
+.d-flex {
+   display: flex;
+   justify-content: space-between;
+}
+
+.d-flex p {
+   color: white;
+   font-size: 18px;
+}
+
+.mt-4 {
+   margin-top: 48px;
 }
 
 #resume a, #resume a:visited  { color: #0762f9; }
